@@ -1,8 +1,9 @@
 import { API_BASE, IntervalEnum } from "../constants";
-import { objToUrlParams, fetchJSON } from "../utils/url";
+import { objToUrlParams } from "../utils/url";
+import { fetchJSON } from "../utils/fetch";
 
 export interface ICurrenciesTickerOptions {
-  interval: string[];
+  interval?: string[];
 }
 
 export type IRawCurrencyTickerInterval = {
@@ -46,7 +47,7 @@ const currenciesTicker = async (
 ): Promise<IRawCurrencyTicker[]> => {
   const { interval } = options;
   const objParams = {
-    interval: interval.join(","),
+    interval: interval && interval.join(","),
     key
   };
 

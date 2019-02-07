@@ -1,7 +1,7 @@
 import currenciesTicker, {
   ICurrenciesTickerOptions,
   IRawCurrencyTicker
-} from "./tickers/currencies";
+} from "./api/currencies_ticker";
 
 export interface INomics {
   currencies: (

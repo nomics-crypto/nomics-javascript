@@ -10,7 +10,8 @@
     "esModuleInterop": true,
     "preserveConstEnums": true,
     "sourceMap": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "types": ["jest"]
   },
   "exclude": ["node_modules", "dist"]
 }
