@@ -2,11 +2,15 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "lib": ["es2017", "es7", "es6", "dom"],
+    "lib": ["dom", "es2016"],
     "declaration": true,
+    "moduleResolution": "node",
     "outDir": "dist",
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true
   },
   "exclude": ["node_modules", "dist"]
 }
