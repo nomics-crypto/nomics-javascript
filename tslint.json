@@ -1,0 +1,17 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:latest", "tslint-config-prettier"],
+  "jsRules": {
+    "indent": [true, "spaces", 2]
+  },
+  "rules": {
+    "arrow-parens": [true, "ban-single-arg-parens"],
+    "forin": false,
+    "indent": [true, "spaces", 2],
+    "no-implicit-dependencies": false,
+    "no-parameter-properties": true,
+    "no-submodule-imports": false,
+    "quotemark": [true, "double"]
+  },
+  "rulesDirectory": []
+}

@@ -1,0 +1,22 @@
+{
+  "name": "nomics-javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^1.16.4",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.3.1"
+  },
+  "dependencies": {
+    "cross-fetch": "^3.0.1"
+  }
+}
