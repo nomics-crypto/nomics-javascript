@@ -17,19 +17,22 @@ export interface INomics {
 
 export interface INomicsOptions {
   apiKey: string;
+  version?: number;
 }
 
 class Nomics {
   private apiKey: string;
+  private version: number = 1;
 
   constructor(options: INomicsOptions) {
-    const { apiKey } = options;
+    const { apiKey, version } = options;
 
     if (isEmpty(apiKey)) {
       throw new Error("Nomics API Key must be specified");
     }
 
     this.apiKey = apiKey;
+    this.version = version ? version : this.version;
   }
 
   currenciesTicker(options?: ICurrenciesTickerOptions) {
