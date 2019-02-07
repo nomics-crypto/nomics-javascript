@@ -7,9 +7,13 @@
   "scripts": {
     "build": "tsc",
     "test": "jest",
-    "prepublish": "tsc"
+    "prepublishOnly": "tsc"
   },
-  "keywords": ["nomics", "cryptocurrency", "api"],
+  "keywords": [
+    "nomics",
+    "cryptocurrency",
+    "api"
+  ],
   "author": "tcs@nomics.com",
   "license": "MIT",
   "devDependencies": {
