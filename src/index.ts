@@ -2,6 +2,7 @@ import currenciesTicker, {
   ICurrenciesTickerOptions,
   IRawCurrencyTicker
 } from "./api/currencies_ticker";
+import { isEmpty } from "./utils/str";
 
 export interface INomics {
   currencies: (
@@ -21,11 +22,17 @@ const api = {
   }
 };
 
-const Nomics = function(options: INomicsOptions): INomics {
+const nomics = function(options: INomicsOptions): INomics {
+  const { apiKey } = options;
+
+  if (isEmpty(apiKey)) {
+    throw new Error("Nomics API Key must be specified");
+  }
+
   const obj = Object.create(api);
-  obj.apiKey = options.apiKey;
+  obj.apiKey = apiKey;
 
   return obj;
 };
 
-export default Nomics;
+export default nomics;
