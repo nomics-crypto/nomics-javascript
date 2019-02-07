@@ -9,9 +9,9 @@ test("gets an object base when setting up", () => {
   const n = new Nomics({ apiKey });
   expect(n).toBeDefined();
 
-  n.currencies(options);
+  n.currenciesTicker(options);
 
-  expect(currenciesTicker).toHaveBeenCalledWith(options, apiKey);
+  expect(currenciesTicker).toHaveBeenCalledWith(apiKey, options);
 });
 
 test("must provide a key", () => {

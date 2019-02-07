@@ -32,8 +32,8 @@ class Nomics {
     this.apiKey = apiKey;
   }
 
-  currencies(options: ICurrenciesTickerOptions) {
-    return currenciesTicker(options, this.apiKey);
+  currenciesTicker(options?: ICurrenciesTickerOptions) {
+    return currenciesTicker(this.apiKey, options);
   }
 }
 

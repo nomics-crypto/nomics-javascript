@@ -42,8 +42,8 @@ export interface IRawCurrencyTicker {
 const CURRENCIES_TICKER_URL = `${API_BASE}/v1/currencies/ticker`;
 
 const currenciesTicker = async (
-  options: ICurrenciesTickerOptions,
-  key: string
+  key: string,
+  options: ICurrenciesTickerOptions = {}
 ): Promise<IRawCurrencyTicker[]> => {
   const { interval } = options;
   const objParams = {

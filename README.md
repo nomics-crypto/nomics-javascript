@@ -34,7 +34,7 @@ To interact with the API after initializing the client, call the corresponding f
 ```javascript
 async function client() {
   // all currencies provided by the ticker with default options
-  const currencies = await nomics.currencies();
+  const currencies = await nomics.currenciesTicker();
 }
 ```
 
@@ -43,7 +43,7 @@ Please note the use of await here. Because these requests are asynchronous and a
 ```javascript
 function client() {
   let currencies;
-  nomics.currencies().then(ticker => (currencies = ticker));
+  nomics.currenciesTicker().then(ticker => (currencies = ticker));
 }
 ```
 
@@ -52,7 +52,7 @@ function client() {
 `Currencies`
 
 ```javascript
-nomics.currencies({
+nomics.currenciesTicker({
   /*
     Specify the interval for interval data in return
     One or more strings can be provided. If not provided, **all** are used.
@@ -80,7 +80,7 @@ Additionally, the returned data will come with interval information correspondin
 For example:
 
 ```javascript
-const currencies = await nomics.currencies();
+const currencies = await nomics.currenciesTicker();
 const oneDayIntervalData = currencies[0]["1d"]; // the first row's 1d interval
 ```
 
