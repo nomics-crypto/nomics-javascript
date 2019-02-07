@@ -1,8 +1,13 @@
 import currenciesTicker, {
   ICurrenciesTickerOptions,
-  IRawCurrencyTicker
+  IRawCurrencyTicker,
+  CurrencyTickerInterval
 } from "./api/currencies_ticker";
+import { IntervalEnum } from "./constants";
 import { isEmpty } from "./utils/str";
+
+export { IRawCurrencyTicker, CurrencyTickerInterval };
+export { IntervalEnum };
 
 export interface INomics {
   currencies: (

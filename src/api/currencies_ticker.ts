@@ -6,7 +6,7 @@ export interface ICurrenciesTickerOptions {
   interval?: string[];
 }
 
-export type IRawCurrencyTickerInterval = {
+export type CurrencyTickerInterval = {
   volume: string | number;
   price_change: string | number;
   price_change_pct: string | number;
@@ -26,11 +26,11 @@ export interface IRawCurrencyTicker {
   high: string | number;
   high_timestamp: string;
 
-  [IntervalEnum.Day]?: IRawCurrencyTickerInterval;
-  [IntervalEnum.Week]?: IRawCurrencyTickerInterval;
-  [IntervalEnum.Month]?: IRawCurrencyTickerInterval;
-  [IntervalEnum.YearToDate]?: IRawCurrencyTickerInterval;
-  [IntervalEnum.Year]?: IRawCurrencyTickerInterval;
+  [IntervalEnum.Day]?: CurrencyTickerInterval;
+  [IntervalEnum.Week]?: CurrencyTickerInterval;
+  [IntervalEnum.Month]?: CurrencyTickerInterval;
+  [IntervalEnum.YearToDate]?: CurrencyTickerInterval;
+  [IntervalEnum.Year]?: CurrencyTickerInterval;
 
   sort?: {
     volume: number;
