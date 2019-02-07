@@ -9,8 +9,8 @@
     "test": "jest",
     "prepublish": "tsc"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["nomics", "cryptocurrency", "api"],
+  "author": "tcs@nomics.com",
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^24.0.0",
