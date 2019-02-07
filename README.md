@@ -16,11 +16,11 @@ yarn add nomics
 Then import and initialize the client:
 
 ```javascript
-import nomics from "nomics";
+import Nomics from "nomics";
 
 // ...
 
-const nomicsApi = nomics({
+const nomics = new Nomics({
   apiKey: "<your api key>"
 });
 
@@ -34,7 +34,7 @@ To interact with the API after initializing the client, call the corresponding f
 ```javascript
 async function client() {
   // all currencies provided by the ticker with default options
-  const currencies = await nomicsApi.currencies();
+  const currencies = await nomics.currencies();
 }
 ```
 
@@ -43,7 +43,7 @@ Please note the use of await here. Because these requests are asynchronous and a
 ```javascript
 function client() {
   let currencies;
-  nomicsApi.currencies().then(ticker => (currencies = ticker));
+  nomics.currencies().then(ticker => (currencies = ticker));
 }
 ```
 
@@ -52,7 +52,7 @@ function client() {
 `Currencies`
 
 ```javascript
-nomicsApi.currencies({
+nomics.currencies({
   /*
     Specify the interval for interval data in return
     One or more strings can be provided. If not provided, **all** are used.
@@ -80,7 +80,7 @@ Additionally, the returned data will come with interval information correspondin
 For example:
 
 ```javascript
-const currencies = await nomicsApi.currencies();
+const currencies = await nomics.currencies();
 const oneDayIntervalData = currencies[0]["1d"]; // the first row's 1d interval
 ```
 

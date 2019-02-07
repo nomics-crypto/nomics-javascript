@@ -19,25 +19,22 @@ export interface INomicsOptions {
   apiKey: string;
 }
 
-const api = {
-  apiKey: "",
+class Nomics {
+  private apiKey: string;
 
-  currencies: function(options: ICurrenciesTickerOptions) {
+  constructor(options: INomicsOptions) {
+    const { apiKey } = options;
+
+    if (isEmpty(apiKey)) {
+      throw new Error("Nomics API Key must be specified");
+    }
+
+    this.apiKey = apiKey;
+  }
+
+  currencies(options: ICurrenciesTickerOptions) {
     return currenciesTicker(options, this.apiKey);
   }
-};
+}
 
-const nomics = function(options: INomicsOptions): INomics {
-  const { apiKey } = options;
-
-  if (isEmpty(apiKey)) {
-    throw new Error("Nomics API Key must be specified");
-  }
-
-  const obj = Object.create(api);
-  obj.apiKey = apiKey;
-
-  return obj;
-};
-
-export default nomics;
+export default Nomics;
