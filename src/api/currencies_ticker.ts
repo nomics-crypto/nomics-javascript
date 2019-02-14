@@ -7,23 +7,23 @@ export interface ICurrenciesTickerOptions {
 }
 
 export type CurrencyTickerInterval = {
-  volume: string | number;
-  price_change: string | number;
-  price_change_pct: string | number;
-  volume_change: string | number;
-  volume_change_pct: string | number;
-  market_cap_change: string | number;
-  market_cap_change_pct: string | number;
+  volume: string;
+  price_change: string;
+  price_change_pct: string;
+  volume_change: string;
+  volume_change_pct: string;
+  market_cap_change: string;
+  market_cap_change_pct: string;
 };
 
 export interface IRawCurrencyTicker {
-  symbol: string;
-  price: string | number;
-  circulating_supply: string | number;
-  max_supply: string | number;
-  market_cap: string | number;
-  rank?: string | number;
-  high: string | number;
+  currency: string;
+  price: string;
+  circulating_supply: string;
+  max_supply: string;
+  market_cap: string;
+  rank?: string;
+  high: string;
   high_timestamp: string;
 
   [IntervalEnum.Day]?: CurrencyTickerInterval;
