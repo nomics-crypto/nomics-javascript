@@ -24,3 +24,10 @@ test("does not add interval if no interval is passed", () => {
     expect.not.stringContaining("interval")
   );
 });
+
+test("passes quote-currency if quoteCurrency is specified", () => {
+  currenciesTicker("xyz", { quoteCurrency: "ETH" });
+  expect(fetchJSON).toHaveBeenCalledWith(
+    expect.stringContaining("quote-currency")
+  );
+});
