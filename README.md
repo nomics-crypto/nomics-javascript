@@ -58,7 +58,11 @@ nomics.currenciesTicker({
     One or more strings can be provided. If not provided, **all** are used.
     The intervals specified will affect what is returned in the response (see below)
   */
-  interval?: ['1d'] // '1d', '7d', '30d', '365d', 'ytd'
+  interval?: ['1d'], // '1d', '7d', '30d', '365d', 'ytd'
+  /*
+    Specify the currency to quote all returned prices in
+  */
+  quoteCurrency?: "EUR" // defaults to "USD"
 });
 ```
 
