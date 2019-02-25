@@ -4,6 +4,7 @@ import { fetchJSON } from "../utils/fetch";
 
 export interface ICurrenciesTickerOptions {
   interval?: string[];
+  quoteCurrency?: string;
 }
 
 export type CurrencyTickerInterval = {
@@ -45,9 +46,10 @@ const currenciesTicker = async (
   key: string,
   options: ICurrenciesTickerOptions = {}
 ): Promise<IRawCurrencyTicker[]> => {
-  const { interval } = options;
+  const { interval, quoteCurrency } = options;
   const objParams = {
     interval: interval && interval.join(","),
+    "quote-currency": quoteCurrency,
     key
   };
 
