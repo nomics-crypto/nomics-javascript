@@ -21,3 +21,11 @@ test("does not add null values", () => {
 test("will return empty if given empty", () => {
   expect(objToUrlParams({})).toEqual("");
 });
+
+test("encodes url values", () => {
+  expect(
+    objToUrlParams({
+      test: "tS+o&"
+    })
+  ).toBe("test=tS%2Bo%26");
+});
