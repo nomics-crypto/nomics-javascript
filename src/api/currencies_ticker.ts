@@ -20,6 +20,7 @@ export type CurrencyTickerInterval = {
 export interface IRawCurrencyTicker {
   currency: string;
   price: string;
+  price_timestamp: string;
   circulating_supply: string;
   max_supply: string;
   market_cap: string;
