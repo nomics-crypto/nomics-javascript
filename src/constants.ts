@@ -1,4 +1,4 @@
-export const API_BASE = "https://api.nomics.com";
+export const API_BASE = "https://nomics-gateway-pr-45.herokuapp.com";
 
 export enum IntervalEnum {
   Minute = "1m",
