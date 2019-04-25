@@ -5,7 +5,7 @@ import { API_BASE } from "../constants";
 jest.mock("../utils/fetch");
 
 test("currencies ticker requests correct url path", () => {
-  currenciesTicker("xyz", { interval: ["1d"] });
+  currenciesTicker("xyz", API_BASE, { interval: ["1d"] });
 
   expect(fetchJSON).toHaveBeenCalledWith(expect.stringContaining(API_BASE));
   expect(fetchJSON).toHaveBeenCalledWith(
@@ -18,7 +18,7 @@ test("currencies ticker requests correct url path", () => {
 });
 
 test("does not add interval if no interval is passed", () => {
-  currenciesTicker("xyz");
+  currenciesTicker("xyz", API_BASE);
 
   expect(fetchJSON).toHaveBeenCalledWith(
     expect.not.stringContaining("interval")
@@ -26,7 +26,7 @@ test("does not add interval if no interval is passed", () => {
 });
 
 test("passes quote-currency if quoteCurrency is specified", () => {
-  currenciesTicker("xyz", { quoteCurrency: "ETH" });
+  currenciesTicker("xyz", API_BASE, { quoteCurrency: "ETH" });
   expect(fetchJSON).toHaveBeenCalledWith(
     expect.stringContaining("quote-currency")
   );

@@ -41,10 +41,11 @@ export interface IRawCurrencyTicker {
   };
 }
 
-const CURRENCIES_TICKER_URL = `${API_BASE}/v1/currencies/ticker`;
+const CURRENCIES_TICKER_PATH = `/v1/currencies/ticker`;
 
 const currenciesTicker = async (
   key: string,
+  apiBase: string,
   options: ICurrenciesTickerOptions = {}
 ): Promise<IRawCurrencyTicker[]> => {
   const { interval, quoteCurrency } = options;
@@ -54,7 +55,9 @@ const currenciesTicker = async (
     key
   };
 
-  return fetchJSON(`${CURRENCIES_TICKER_URL}?${objToUrlParams(objParams)}`);
+  return fetchJSON(
+    `${apiBase}${CURRENCIES_TICKER_PATH}?${objToUrlParams(objParams)}`
+  );
 };
 
 export default currenciesTicker;
