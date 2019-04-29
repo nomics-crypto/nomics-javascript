@@ -1,6 +1,7 @@
-import { API_BASE, IntervalEnum } from "../constants";
+import { IntervalEnum } from "../constants";
 import { objToUrlParams } from "../utils/url";
 import { fetchJSON } from "../utils/fetch";
+import Nomics from "..";
 
 export interface ICurrenciesTickerOptions {
   interval?: string[];
@@ -45,7 +46,6 @@ const CURRENCIES_TICKER_PATH = `/v1/currencies/ticker`;
 
 const currenciesTicker = async (
   key: string,
-  apiBase: string,
   options: ICurrenciesTickerOptions = {}
 ): Promise<IRawCurrencyTicker[]> => {
   const { interval, quoteCurrency } = options;
@@ -56,7 +56,9 @@ const currenciesTicker = async (
   };
 
   return fetchJSON(
-    `${apiBase}${CURRENCIES_TICKER_PATH}?${objToUrlParams(objParams)}`
+    `${Nomics.NOMICS_API_BASE}${CURRENCIES_TICKER_PATH}?${objToUrlParams(
+      objParams
+    )}`
   );
 };
 

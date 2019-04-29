@@ -23,10 +23,15 @@ export interface INomicsOptions {
 class Nomics {
   private apiKey: string;
   private version: number = 1;
-  private apiBase: string = API_BASE;
 
-  set NOMICS_API_BASE(apiBase: string) {
-    this.apiBase = apiBase;
+  private static baseUrl: string = API_BASE;
+
+  public static set NOMICS_API_BASE(apiBase: string) {
+    Nomics.baseUrl = apiBase;
+  }
+
+  public static get NOMICS_API_BASE() {
+    return Nomics.baseUrl;
   }
 
   constructor(options: INomicsOptions) {
@@ -41,7 +46,7 @@ class Nomics {
   }
 
   currenciesTicker(options?: ICurrenciesTickerOptions) {
-    return currenciesTicker(this.apiKey, this.apiBase, options);
+    return currenciesTicker(this.apiKey, options);
   }
 }
 
