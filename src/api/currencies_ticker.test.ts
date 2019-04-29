@@ -1,6 +1,7 @@
 import currenciesTicker from "./currencies_ticker";
 import { fetchJSON } from "../utils/fetch";
 import { API_BASE } from "../constants";
+import Nomics from "..";
 
 jest.mock("../utils/fetch");
 
@@ -29,5 +30,13 @@ test("passes quote-currency if quoteCurrency is specified", () => {
   currenciesTicker("xyz", { quoteCurrency: "ETH" });
   expect(fetchJSON).toHaveBeenCalledWith(
     expect.stringContaining("quote-currency")
+  );
+});
+
+test("can change the base url via static property", () => {
+  Nomics.NOMICS_API_BASE = "http://test.nomics.com";
+  currenciesTicker("xyz", { interval: ["1d"] });
+  expect(fetchJSON).toHaveBeenCalledWith(
+    expect.stringContaining("http://test.nomics.com")
   );
 });

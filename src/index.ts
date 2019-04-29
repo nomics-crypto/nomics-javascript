@@ -3,7 +3,7 @@ import currenciesTicker, {
   IRawCurrencyTicker,
   CurrencyTickerInterval
 } from "./api/currencies_ticker";
-import { IntervalEnum } from "./constants";
+import { IntervalEnum, API_BASE } from "./constants";
 import { isEmpty } from "./utils/str";
 
 export { IRawCurrencyTicker, CurrencyTickerInterval };
@@ -23,6 +23,16 @@ export interface INomicsOptions {
 class Nomics {
   private apiKey: string;
   private version: number = 1;
+
+  private static baseUrl: string = API_BASE;
+
+  public static set NOMICS_API_BASE(apiBase: string) {
+    Nomics.baseUrl = apiBase;
+  }
+
+  public static get NOMICS_API_BASE() {
+    return Nomics.baseUrl;
+  }
 
   constructor(options: INomicsOptions) {
     const { apiKey, version } = options;
