@@ -30,8 +30,6 @@ export interface IRawCurrencyTicker {
   rank?: string;
   high: string;
   high_timestamp: string;
-  high_quote: string;
-  high_exchange: string;
 
   [IntervalEnum.Day]?: CurrencyTickerInterval;
   [IntervalEnum.Week]?: CurrencyTickerInterval;
