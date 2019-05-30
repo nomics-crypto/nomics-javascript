@@ -14,22 +14,22 @@ export type CurrencyTickerInterval = {
   price_change_pct: string;
   volume_change: string;
   volume_change_pct: string;
-  market_cap_change: string;
-  market_cap_change_pct: string;
+  market_cap_change?: string;
+  market_cap_change_pct?: string;
 };
 
 export interface IRawCurrencyTicker {
   currency: string;
-  name: string;
-  logo_url: string;
+  name?: string;
+  logo_url?: string;
   price: string;
   price_date: string;
-  circulating_supply: string;
-  max_supply: string;
-  market_cap: string;
+  circulating_supply?: string;
+  max_supply?: string;
+  market_cap?: string;
   rank?: string;
-  high: string;
-  high_timestamp: string;
+  high?: string;
+  high_timestamp?: string;
 
   [IntervalEnum.Day]?: CurrencyTickerInterval;
   [IntervalEnum.Week]?: CurrencyTickerInterval;
