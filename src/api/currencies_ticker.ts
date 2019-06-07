@@ -19,10 +19,11 @@ export type CurrencyTickerInterval = {
 };
 
 export interface IRawCurrencyTicker {
+  id: string;
   currency: string;
+  symbol: string;
   name?: string;
   logo_url?: string;
-  original_symbol?: string;
   price: string;
   price_date: string;
   circulating_supply?: string;
