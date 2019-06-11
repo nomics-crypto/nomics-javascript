@@ -24,8 +24,8 @@ export interface IRawCurrencyTicker {
   symbol: string;
   name?: string;
   logo_url?: string;
-  price: string;
-  price_date: string;
+  price?: string;
+  price_date?: string;
   circulating_supply?: string;
   max_supply?: string;
   market_cap?: string;
