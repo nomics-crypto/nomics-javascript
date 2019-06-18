@@ -5,7 +5,10 @@ import Nomics from "..";
 
 export interface ICurrenciesTickerOptions {
   interval?: string[];
+  ids?: string[];
   quoteCurrency?: string;
+  convert?: string;
+  includeTransparency?: boolean;
 }
 
 export type CurrencyTickerInterval = {
@@ -16,6 +19,15 @@ export type CurrencyTickerInterval = {
   volume_change_pct: string;
   market_cap_change?: string;
   market_cap_change_pct?: string;
+  volume_transparency: VolumeTransparency[];
+  volume_transparency_grade: string;
+};
+
+export type VolumeTransparency = {
+  grade: string;
+  volume: string;
+  volume_change: string;
+  volume_change_pct: string;
 };
 
 export interface IRawCurrencyTicker {
@@ -52,10 +64,19 @@ const currenciesTicker = async (
   key: string,
   options: ICurrenciesTickerOptions = {}
 ): Promise<IRawCurrencyTicker[]> => {
-  const { interval, quoteCurrency } = options;
+  const {
+    convert,
+    ids,
+    interval,
+    quoteCurrency,
+    includeTransparency
+  } = options;
   const objParams = {
+    convert,
+    ids: ids && ids.join(","),
     interval: interval && interval.join(","),
     "quote-currency": quoteCurrency,
+    "include-transparency": includeTransparency,
     key
   };
 
