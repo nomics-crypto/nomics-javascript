@@ -60,24 +60,34 @@ nomics.currenciesTicker({
   */
   interval?: ['1d'], // '1d', '7d', '30d', '365d', 'ytd'
   /*
+    Limit the returned currencies to the ones in the following array. If not
+    specified, **all** will be returned
+  */
+  ids?: ['BTC', 'ETH'],
+  /*
     Specify the currency to quote all returned prices in
   */
-  quoteCurrency?: "EUR" // defaults to "USD"
+  quoteCurrency?: "EUR", // [DEPRECATED] use "convert" below instead
+  convert?: "EUR", // defaults to "USD"
 });
 ```
 
 This returns a list of _all_ currencies from the currencies ticker endpoint with the following data:
 
-| Name               | Type   | Description                       |
-| ------------------ | ------ | --------------------------------- |
-| symbol             | string | The currency symbol               |
-| price              | string | Current price                     |
-| circulating_supply | string | The current circulating supply    |
-| max_supply         | string | The max supply of the currency    |
-| market_cap         | string | Total market cap for the currency |
-| rank               | string | Rank by market cap                |
-| high               | string | All time high for the currency    |
-| high_timestamp     | string | The date of the all time high     |
+| Name               | Type   | Description                         |
+| ------------------ | ------ | ----------------------------------- |
+| id                 | string | The currency's display id           |
+| symbol             | string | The currency's original symbol      |
+| name               | string | The full name                       |
+| logo_url           | string | The url for the currency logo image |
+| price              | string | Current price                       |
+| price_date         | string | The date (YYYY-MM-DD) of the price  |
+| circulating_supply | string | The current circulating supply      |
+| max_supply         | string | The max supply of the currency      |
+| market_cap         | string | Total market cap for the currency   |
+| rank               | string | Rank by market cap                  |
+| high               | string | All time high for the currency      |
+| high_timestamp     | string | The date of the all time high       |
 
 Additionally, the returned data will come with interval information corresponding to the interval options passed with the call for each of the currency rows. For each interval string, the response will will have a key of the same name with interval data.
 

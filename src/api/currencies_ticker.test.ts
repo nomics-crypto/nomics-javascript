@@ -33,6 +33,31 @@ test("passes quote-currency if quoteCurrency is specified", () => {
   );
 });
 
+test("passes convert if convert is specified", () => {
+  currenciesTicker("xyz", { convert: "ETH" });
+  expect(fetchJSON).toHaveBeenCalledWith(
+    expect.stringContaining("convert=ETH")
+  );
+});
+
+test("passes ids if ids are specified", () => {
+  currenciesTicker("xyz", { ids: ["ETH", "BTC"] });
+  expect(fetchJSON).toHaveBeenCalledWith(
+    expect.stringContaining(`ids=${encodeURIComponent("ETH,BTC")}`)
+  );
+});
+
+test("passes includeTransparency if specified", () => {
+  currenciesTicker("xyz", { includeTransparency: true });
+  expect(fetchJSON).toHaveBeenCalledWith(
+    expect.stringContaining("include-transparency=true")
+  );
+  currenciesTicker("xyz", {});
+  expect(fetchJSON).toHaveBeenCalledWith(
+    expect.not.stringContaining("include-transparency")
+  );
+});
+
 test("can change the base url via static property", () => {
   Nomics.NOMICS_API_BASE = "http://test.nomics.com";
   currenciesTicker("xyz", { interval: ["1d"] });
