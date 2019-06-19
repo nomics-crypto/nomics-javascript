@@ -67,7 +67,7 @@ nomics.currenciesTicker({
   /*
     Specify the currency to quote all returned prices in
   */
-  quoteCurrency?: "EUR", // [DEPRECATED] use "convert" instead
+  quoteCurrency?: "EUR", // [DEPRECATED] use "convert" below instead
   convert?: "EUR", // defaults to "USD"
 });
 ```
@@ -81,6 +81,7 @@ This returns a list of _all_ currencies from the currencies ticker endpoint with
 | name               | string | The full name                       |
 | logo_url           | string | The url for the currency logo image |
 | price              | string | Current price                       |
+| price_date         | string | The date (YYYY-MM-DD) of the price  |
 | circulating_supply | string | The current circulating supply      |
 | max_supply         | string | The max supply of the currency      |
 | market_cap         | string | Total market cap for the currency   |
