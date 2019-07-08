@@ -1,9 +1,9 @@
 import currenciesTicker, {
+  CurrencyTickerInterval,
   ICurrenciesTickerOptions,
-  IRawCurrencyTicker,
-  CurrencyTickerInterval
+  IRawCurrencyTicker
 } from "./api/currencies_ticker";
-import { IntervalEnum, API_BASE } from "./constants";
+import { API_BASE, IntervalEnum } from "./constants";
 import { isEmpty } from "./utils/str";
 
 export { IRawCurrencyTicker, CurrencyTickerInterval };
@@ -21,11 +21,6 @@ export interface INomicsOptions {
 }
 
 class Nomics {
-  private apiKey: string;
-  private version: number = 1;
-
-  private static baseUrl: string = API_BASE;
-
   public static set NOMICS_API_BASE(apiBase: string) {
     Nomics.baseUrl = apiBase;
   }
@@ -33,6 +28,10 @@ class Nomics {
   public static get NOMICS_API_BASE() {
     return Nomics.baseUrl;
   }
+
+  private static baseUrl: string = API_BASE;
+  private apiKey: string;
+  private version: number = 1;
 
   constructor(options: INomicsOptions) {
     const { apiKey, version } = options;
@@ -45,7 +44,7 @@ class Nomics {
     this.version = version ? version : this.version;
   }
 
-  currenciesTicker(options?: ICurrenciesTickerOptions) {
+  public currenciesTicker(options?: ICurrenciesTickerOptions) {
     return currenciesTicker(this.apiKey, options);
   }
 }

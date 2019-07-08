@@ -1,7 +1,7 @@
-import currenciesTicker from "./currencies_ticker";
-import { fetchJSON } from "../utils/fetch";
-import { API_BASE } from "../constants";
 import Nomics from "..";
+import { API_BASE } from "../constants";
+import { fetchJSON } from "../utils/fetch";
+import currenciesTicker from "./currencies_ticker";
 
 jest.mock("../utils/fetch");
 
