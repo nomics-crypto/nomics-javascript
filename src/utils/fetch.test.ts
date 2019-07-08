@@ -1,5 +1,5 @@
-import { fetchJSON } from "./fetch";
 import fetch from "cross-fetch";
+import { fetchJSON } from "./fetch";
 
 jest.mock("cross-fetch", () =>
   jest.fn(() => ({

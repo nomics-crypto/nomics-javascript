@@ -7,5 +7,5 @@ export const fetchJSON = async (path: string): Promise<any> => {
     throw new Error("Bad response from server");
   }
 
-  return await res.json();
+  return res.json();
 };

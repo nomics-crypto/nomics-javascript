@@ -1,7 +1,7 @@
-import { IntervalEnum } from "../constants";
-import { objToUrlParams } from "../utils/url";
-import { fetchJSON } from "../utils/fetch";
 import Nomics from "..";
+import { IntervalEnum } from "../constants";
+import { fetchJSON } from "../utils/fetch";
+import { objToUrlParams } from "../utils/url";
 
 export interface ICurrenciesTickerOptions {
   interval?: string[];
@@ -11,6 +11,7 @@ export interface ICurrenciesTickerOptions {
   includeTransparency?: boolean;
 }
 
+// tslint:disable-next-line: interface-over-type-literal
 export type CurrencyTickerInterval = {
   volume: string;
   price_change: string;
@@ -23,6 +24,7 @@ export type CurrencyTickerInterval = {
   volume_transparency_grade: string;
 };
 
+// tslint:disable-next-line: interface-over-type-literal
 export type VolumeTransparency = {
   grade: string;
   volume: string;
@@ -74,10 +76,10 @@ const currenciesTicker = async (
   const objParams = {
     convert,
     ids: ids && ids.join(","),
-    interval: interval && interval.join(","),
-    "quote-currency": quoteCurrency,
     "include-transparency": includeTransparency,
-    key
+    interval: interval && interval.join(","),
+    key,
+    "quote-currency": quoteCurrency
   };
 
   return fetchJSON(
