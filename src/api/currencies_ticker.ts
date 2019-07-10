@@ -20,8 +20,8 @@ export type CurrencyTickerInterval = {
   volume_change_pct: string;
   market_cap_change?: string;
   market_cap_change_pct?: string;
-  volume_transparency: VolumeTransparency[];
-  volume_transparency_grade: string;
+  volume_transparency?: VolumeTransparency[];
+  volume_transparency_grade?: string;
 };
 
 // tslint:disable-next-line: interface-over-type-literal
