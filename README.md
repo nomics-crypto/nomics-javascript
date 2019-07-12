@@ -109,3 +109,11 @@ The interval data is as follows:
 | volume_change_pct     | string | Volume change percent over the interval     |
 | market_cap_change     | string | Market cap change over the interval         |
 | market_cap_change_pct | string | Market cap change percent over the interval |
+
+## Development
+
+### Publishing a new version
+
+1. Version the package: `npm version {patch | minor | major}` — this updates the package json accordingly
+1. Publish the package: `npm publish` — this does a pre-publish step to transpile the code to /dist, and then it publishes that. If you have 2FA setup, it’ll prompt you to enter that before publish finishes
+1. Commit and push the update back to master: `git push origin master` — just make sure that the package.json in master matches the published version
