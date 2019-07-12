@@ -1,10 +1,6 @@
 {
   "name": "nomics",
-<<<<<<< HEAD
-  "version": "0.2.9",
-=======
   "version": "0.2.10",
->>>>>>> e49237d390499b54c94b5c0fe10d4a8433a1453e
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
