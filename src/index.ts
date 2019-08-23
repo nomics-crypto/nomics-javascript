@@ -3,6 +3,9 @@ import currenciesTicker, {
   ICurrenciesTickerOptions,
   IRawCurrencyTicker
 } from "./api/currencies_ticker";
+import exchangesTicker, {
+  IExchangesTickerOptions
+} from "./api/exchanges_ticker";
 import { API_BASE, IntervalEnum } from "./constants";
 import { isEmpty } from "./utils/str";
 
@@ -46,6 +49,10 @@ class Nomics {
 
   public currenciesTicker(options?: ICurrenciesTickerOptions) {
     return currenciesTicker(this.apiKey, options);
+  }
+
+  public exchangesTicker(options?: IExchangesTickerOptions) {
+    return exchangesTicker(this.apiKey, options);
   }
 }
 
