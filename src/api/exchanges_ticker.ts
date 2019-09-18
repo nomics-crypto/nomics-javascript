@@ -4,6 +4,7 @@ import { fetchJSON } from "../utils/fetch";
 import { objToUrlParams } from "../utils/url";
 
 export interface IExchangesTickerOptions {
+  convert?: string;
   interval?: string[];
   ids?: string[];
 }
@@ -45,8 +46,9 @@ const exchangesTicker = async (
   key: string,
   options: IExchangesTickerOptions = {}
 ): Promise<IRawExchangeTicker[]> => {
-  const { ids, interval } = options;
+  const { convert, ids, interval } = options;
   const objParams = {
+    convert,
     ids: ids && ids.join(","),
     interval: interval && interval.join(","),
     key

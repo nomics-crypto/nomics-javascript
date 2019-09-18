@@ -4,12 +4,19 @@ import currenciesTicker, {
   IRawCurrencyTicker
 } from "./api/currencies_ticker";
 import exchangesTicker, {
-  IExchangesTickerOptions
+  ExchangeTickerInterval,
+  IExchangesTickerOptions,
+  IRawExchangeTicker
 } from "./api/exchanges_ticker";
 import { API_BASE, IntervalEnum } from "./constants";
 import { isEmpty } from "./utils/str";
 
-export { IRawCurrencyTicker, CurrencyTickerInterval };
+export {
+  IRawCurrencyTicker,
+  IRawExchangeTicker,
+  CurrencyTickerInterval,
+  ExchangeTickerInterval
+};
 export { IntervalEnum };
 
 export interface INomics {
