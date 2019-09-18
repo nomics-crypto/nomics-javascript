@@ -31,3 +31,10 @@ test("passes ids if ids are specified", () => {
     expect.stringContaining(`ids=${encodeURIComponent("ETH,BTC")}`)
   );
 });
+
+test("passes convert if convert is specified", () => {
+  exchangesTicker("xyz", { convert: "ETH" });
+  expect(fetchJSON).toHaveBeenCalledWith(
+    expect.stringContaining("convert=ETH")
+  );
+});
