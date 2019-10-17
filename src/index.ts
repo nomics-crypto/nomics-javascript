@@ -3,6 +3,11 @@ import currenciesTicker, {
   ICurrenciesTickerOptions,
   IRawCurrencyTicker
 } from "./api/currencies_ticker";
+import exchangeMarketsTicker, {
+  ExchangeMarketTickerInterval,
+  IExchangeMarketsTickerOptions,
+  IRawExchangeMarketTicker
+} from "./api/exchange_markets_ticker";
 import exchangesTicker, {
   ExchangeTickerInterval,
   IExchangesTickerOptions,
@@ -14,8 +19,10 @@ import { isEmpty } from "./utils/str";
 export {
   IRawCurrencyTicker,
   IRawExchangeTicker,
+  IRawExchangeMarketTicker,
   CurrencyTickerInterval,
-  ExchangeTickerInterval
+  ExchangeTickerInterval,
+  ExchangeMarketTickerInterval
 };
 export { IntervalEnum };
 
@@ -60,6 +67,10 @@ class Nomics {
 
   public exchangesTicker(options?: IExchangesTickerOptions) {
     return exchangesTicker(this.apiKey, options);
+  }
+
+  public exchangeMarketsTicker(options?: IExchangeMarketsTickerOptions) {
+    return exchangeMarketsTicker(this.apiKey, options);
   }
 }
 
