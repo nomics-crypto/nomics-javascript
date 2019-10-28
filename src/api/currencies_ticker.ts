@@ -64,7 +64,8 @@ const CURRENCIES_TICKER_PATH = `/v1/currencies/ticker`;
 
 const currenciesTicker = async (
   key: string,
-  options: ICurrenciesTickerOptions = {}
+  options: ICurrenciesTickerOptions = {},
+  fetchOptions?: RequestInit
 ): Promise<IRawCurrencyTicker[]> => {
   const {
     convert,
@@ -85,7 +86,8 @@ const currenciesTicker = async (
   return fetchJSON(
     `${Nomics.NOMICS_API_BASE}${CURRENCIES_TICKER_PATH}?${objToUrlParams(
       objParams
-    )}`
+    )}`,
+    fetchOptions
   );
 };
 

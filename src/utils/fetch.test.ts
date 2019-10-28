@@ -6,6 +6,7 @@ jest.mock("cross-fetch", () =>
     json: jest.fn(() => ({
       test: "ok"
     })),
+    ok: true,
     status: 200
   }))
 );
@@ -13,16 +14,21 @@ jest.mock("cross-fetch", () =>
 test("passes string to fetch lib", async () => {
   await fetchJSON("https://foo.com");
 
-  expect(fetch).toHaveBeenCalledWith("https://foo.com");
+  expect(fetch).toHaveBeenCalledWith("https://foo.com", undefined);
 });
 
-test("throws when response status is greater than 400", async () => {
+test("throws when response status is not ok", async () => {
   (fetch as jest.Mock).mockResolvedValueOnce({
     json: jest.fn(),
+    ok: false,
     status: 401
   });
 
-  await expect(fetchJSON("https://foo.com")).rejects.toThrow(Error);
+  try {
+    await fetchJSON("https://foo.com");
+  } catch (error) {
+    expect(error).toStrictEqual(expect.objectContaining({ status: 401 }));
+  }
 });
 
 test("returns json from response", async () => {
