@@ -61,16 +61,25 @@ class Nomics {
     this.version = version ? version : this.version;
   }
 
-  public currenciesTicker(options?: ICurrenciesTickerOptions) {
-    return currenciesTicker(this.apiKey, options);
+  public currenciesTicker(
+    options?: ICurrenciesTickerOptions,
+    fetchOptions?: RequestInit
+  ) {
+    return currenciesTicker(this.apiKey, options, fetchOptions);
   }
 
-  public exchangesTicker(options?: IExchangesTickerOptions) {
-    return exchangesTicker(this.apiKey, options);
+  public exchangesTicker(
+    options?: IExchangesTickerOptions,
+    fetchOptions?: RequestInit
+  ) {
+    return exchangesTicker(this.apiKey, options, fetchOptions);
   }
 
-  public exchangeMarketsTicker(options?: IExchangeMarketsTickerOptions) {
-    return exchangeMarketsTicker(this.apiKey, options);
+  public exchangeMarketsTicker(
+    options?: IExchangeMarketsTickerOptions,
+    fetchOptions?: RequestInit
+  ) {
+    return exchangeMarketsTicker(this.apiKey, options, fetchOptions);
   }
 }
 

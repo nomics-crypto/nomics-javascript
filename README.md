@@ -47,6 +47,14 @@ function client() {
 }
 ```
 
+All ticker functions can take two arguments (both are optional): ticker options (see relevant ticker information) and request fetch options.
+
+```javascript
+nomics.currenciesTicker(tickerOptions, fetchOptions);
+```
+
+For fetch options, an object conforming to [fetch standard options](https://github.com/bitinn/node-fetch#options) can be passed. These options are for more advanced configurations, and for a majority of use cases, should not need to be included.
+
 #### Currently supported Ticker functions
 
 `Currencies`

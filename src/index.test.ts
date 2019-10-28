@@ -11,7 +11,7 @@ test("gets an object base when setting up", () => {
 
   n.currenciesTicker(options);
 
-  expect(currenciesTicker).toHaveBeenCalledWith(apiKey, options);
+  expect(currenciesTicker).toHaveBeenCalledWith(apiKey, options, undefined);
 });
 
 test("must provide a key", () => {

@@ -44,7 +44,8 @@ const EXCHANGES_TICKER_PATH = `/v1/exchanges/ticker`;
 
 const exchangesTicker = async (
   key: string,
-  options: IExchangesTickerOptions = {}
+  options: IExchangesTickerOptions = {},
+  fetchOptions?: RequestInit
 ): Promise<IRawExchangeTicker[]> => {
   const { convert, ids, interval } = options;
   const objParams = {
@@ -57,7 +58,8 @@ const exchangesTicker = async (
   return fetchJSON(
     `${Nomics.NOMICS_API_BASE}${EXCHANGES_TICKER_PATH}?${objToUrlParams(
       objParams
-    )}`
+    )}`,
+    fetchOptions
   );
 };
 
