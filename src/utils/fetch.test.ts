@@ -2,13 +2,15 @@ import fetch from "cross-fetch";
 import { fetchJSON } from "./fetch";
 
 jest.mock("cross-fetch", () =>
-  jest.fn(() => ({
-    json: jest.fn(() => ({
-      test: "ok"
-    })),
-    ok: true,
-    status: 200
-  }))
+  jest.fn(() =>
+    Promise.resolve({
+      json: jest.fn(() => ({
+        test: "ok"
+      })),
+      ok: true,
+      status: 200
+    })
+  )
 );
 
 test("passes string to fetch lib", async () => {

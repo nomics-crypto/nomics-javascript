@@ -46,7 +46,7 @@ export interface IRawExchangeMarketTicker {
 
 const EXCHANGES_TICKER_PATH = `/v1/exchange-markets/ticker`;
 
-const exchangeMarketsTicker = async (
+const exchangeMarketsTicker = (
   key: string,
   options: IExchangeMarketsTickerOptions = {},
   fetchOptions?: RequestInit

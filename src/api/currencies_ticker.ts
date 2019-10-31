@@ -62,7 +62,7 @@ export interface IRawCurrencyTicker {
 
 const CURRENCIES_TICKER_PATH = `/v1/currencies/ticker`;
 
-const currenciesTicker = async (
+const currenciesTicker = (
   key: string,
   options: ICurrenciesTickerOptions = {},
   fetchOptions?: RequestInit
