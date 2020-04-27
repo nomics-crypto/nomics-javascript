@@ -20,6 +20,8 @@ export type CurrencyTickerInterval = {
   volume_change_pct: string;
   market_cap_change?: string;
   market_cap_change_pct?: string;
+  transparent_market_cap_change?: string;
+  transparent_market_cap_change_pct?: string;
   volume_transparency?: VolumeTransparency[];
   volume_transparency_grade?: string;
 };
@@ -44,6 +46,7 @@ export interface IRawCurrencyTicker {
   circulating_supply?: string;
   max_supply?: string;
   market_cap?: string;
+  transparent_market_cap?: string;
   rank?: string;
   high?: string;
   high_timestamp?: string;
